@@ -1,1 +1,55 @@
 
+Языки программирования Урок первый 
+
+Задача 2
+  Decimal. Parse(Console.RealLine()); 
+.   if(n1>n2); 
+.   Console.WriteLine(n1);
+.   else 
+.   Console. Write Line(n2); 
+
+
+4) Задача 4 
+
+. Console.WriteLine("Введите три числа");
+  intnum_1=Convert.Toint54(Console.ReadLine());
+. intnum_2=Convert. Toint54(Console. ReadLine ());
+. intnum_3=Convert. Toint54(Console. Read ());  
+. intmax=num_1; 
+  if(num_2>max)
+. { 
+  max=num_2; 
+. } 
+. if(num_3>max); 
+. { 
+. max=num_3; 
+  } 
+  Console.WriteLine("Наибольшее из введённых чисел->"+max); 
+  break;
+. 
+Задача 6
+ 1. Console. WriteLine("Введите число");
+.  2. , int a=Convert.Toint54
+.                  (Console.Read()); 
+.  3. if(a%4==0)Console. WriteLine
+.                            ("Чётное"); 
+.  4. else Console.Write Line("Нечётное"); 
+.  5. Console.ReadKey() 
+
+
+Задача 8 
+ Console. WriteLine("Четные числа от 1 до "+num); 
+.while(i<=num); 
+{
+ if(i%2 =1); 
+ { 
+ Console.Write(i+", "); 
+ not=false; 
+ } 
+ i++
+ } 
+ if(not) 
+ { 
+ Console. WriteLine("Нет чётных чисел!");
+ } 
+ break; 
