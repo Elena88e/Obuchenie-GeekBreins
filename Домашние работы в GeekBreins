@@ -95,6 +95,8 @@ Void CheckingTheDayOfTheWeek (int dayNumber) {
 
 CheckingTheDayOfTheWeek(dayNumber);
 
+
+Третий семинар
 Задача 19 
 Console.WriteLine(«Задача 19»);
 Console.Write(«Введите число: «);
