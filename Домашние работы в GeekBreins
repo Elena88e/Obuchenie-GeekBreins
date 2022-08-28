@@ -53,3 +53,115 @@
  Console. WriteLine("Нет чётных чисел!");
  } 
  break; 
+
+Домашнее задание ко 2 семинару 
+
+
+Задача 10
+Console.Clear();
+Console.WriteLine(«Задача 10 «);
+Console.Write(«Введи трёхзначное число: «);
+Int threeDigitNumber = Convert.ToInt32(Console.ReadLine());
+String stringNumber = Convert.ToString(threeDigitNumber);
+Console.WriteLine(«вторая цифра этого числа -> «+stringNumber[1]);
+
+
+Задача 13 
+Console.Write(«Введи число: «);
+Int anyNumber = Convert.ToInt32(Console.ReadLine());
+String anyNumberText = Convert.ToString(anyNumber);
+If (anyNumberText.Length > 2){
+  Console.WriteLine(«третья цифра -> « + anyNumberText[2]);
+}
+Else {
+  Console.WriteLine(«-> третьей цифры нет»);
+}
+
+Задача 15 
+Console.WriteLine(«Задача 15 «);
+
+Console.Write(«Введи цифру, обозначающую день недели: «);
+Int dayNumber = Convert.ToInt32(Console.ReadLine());
+
+Void CheckingTheDayOfTheWeek (int dayNumber) {
+  If (dayNumber == 6 || dayNumber == 7) {
+  Console.WriteLine(«(этот день выходной) -> да»);
+  }
+  Else if (dayNumber < 1 || dayNumber > 7) {
+    Console.WriteLine(«это вообще не день недели»);
+  }
+  Else Console.WriteLine(«(этот день не выходной) -> нет»);
+}
+
+CheckingTheDayOfTheWeek(dayNumber);
+
+Задача 19 
+Console.WriteLine(«Задача 19»);
+Console.Write(«Введите число: «);
+String? Number = Console.ReadLine();
+
+Void CheckingNumber(string number){
+  If (number[0]==number[4] || number[1]==number[3]){
+    Console.WriteLine($»Ваше число: {number} – палиндром.»);
+  }
+  Else Console.WriteLine($»Ваше число: {number} – НЕ палиндром.»);
+}
+
+If (number!.Length == 5){
+  CheckingNumber(number);
+}
+Else Console.WriteLine($»Введи правильное число»);
+
+Задача 21
+Console.WriteLine(«\n Задача 21»);
+Int x1 = Coordinate(«x», «A»);
+Int y1 = Coordinate(«y», «A»);
+Int z1 = Coordinate(«z», «A»);
+Int x2 = Coordinate(«x», «B»);
+Int y2 = Coordinate(«y», «B»);
+Int z2 = Coordinate(«z», «B»);
+
+Int Coordinate(string coorName, string pointName)
+{
+    Console.Write($»Введите координату {coorName} точки {pointName}: «);
+    Return Convert.ToInt16(Console.ReadLine());
+}
+
+Double Decision(double x1, double x2, 
+                Double y1, double y2, 
+                Double z1, double z2){
+  Return Math.Sqrt(Math.Pow((x2-x1), 2) + 
+                   Math.Pow((y2-y1), 2) + 
+                   Math.Pow((z2-z1), 2));
+}
+
+Double segmentLength =  Math.Round (Decision(x1, x2, y1, y2, z1, z2), 2 );
+
+Console.WriteLine($»Длина отрезка  {segmentLength}»);
+
+Задача 23 
+Console.WriteLine(«\n Задача 23»);
+Console.Write(«Введите число: «);
+Int cube = Convert.ToInt32(Console.ReadLine());
+
+Void Cube(int[] cube){
+  Int counter = 0;
+  Int length = cube.Length;
+  While (counter <  length){
+    Cube[counter] = Convert.ToInt32(Math.Pow(counter, 3));
+    Counter++;
+  }
+}
+
+Void PrintArry(int[] coll){
+  Int count = coll.Length;
+  Int index = 0;
+  While(index < count){
+    Console.Write(coll[index]+ « «);
+    Index++;
+  }
+} 
+
+Int[] arry = new int[cube+1];
+Cube(arry);
+PrintArry(arry);
