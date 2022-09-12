@@ -1,0 +1,220 @@
+Задача 41 
+Console.Write($»Введи число М(количество чисел): «);
+Int m = Convert.ToInt32(Console.ReadLine());
+Int[] massiveNumbers = new int[m];
+
+Void InputNumbers(int m){
+For (int i = 0; i < m; i++)
+  {
+    Console.Write($»Введи {i+1} число: «);
+    massiveNumbers[i] = Convert.ToInt32(Console.ReadLine());
+  }
+}
+
+
+Int Comparison(int[] massiveNumbers)
+{
+  Int count = 0;
+  For (int i = 0; i < massiveNumbers.Length; i++)
+  {
+    If(massiveNumbers[i] > 0 ) count += 1; 
+  }
+  Return count;
+}
+
+InputNumbers(m);
+
+Console.WriteLine($»Введено чисел больше 0: {Comparison(massiveNumbers)} «);
+
+
+Задача 43
+Console.WriteLine($»\nЗадача 43.  Найти точку пересечения двух прямых \n»);
+
+Double[,] coeff = new double[2, 2];
+Double[] crossPoint = new double[2];
+
+Void InputCoefficients(){
+  For (int i = 0; i < coeff.GetLength(0); i++)
+  {
+    Console.Write($»Введите коэффициенты {i+1}-го уравнения (y = k * x + b):\n»);
+    For (int j = 0; j < coeff.GetLength(1); j++)
+    {
+      If(j==0) Console.Write($»Введите коэффициент k: «);
+      Else Console.Write($»Введите коэффициент b: «);
+      Coeff[i,j] = Convert.ToInt32(Console.ReadLine());
+    }
+  }
+}
+
+Double[] Decision(double[,] coeff)
+{
+  crossPoint[0] = (coeff[1,1] – coeff[0,1]) / (coeff[0,0] – coeff[1,0]);
+  crossPoint[1] = crossPoint[0] * coeff[0,0] + coeff[0,1];
+  return crossPoint;
+}
+
+Void OutputResponse(double[,] coeff)
+{
+  If (coeff[0,0] == coeff[1,0] && coeff[0,1] == coeff[1,1]) 
+  {
+    Console.Write($»\nПрямые совпадают»);
+  }
+  Else if (coeff[0,0] == coeff[1,0] && coeff[0,1] != coeff[1,1]) 
+  {
+    Console.Write($»\nПрямые параллельны»);
+  }
+  Else 
+  {
+    Decision(coeff);
+    Console.Write($»\nТочка пересечения прямых: ({crossPoint[0]}, {crossPoint[1]})»);
+  }
+}
+
+InputCoefficients();
+OutputResponse(coeff);
+
+Console.Write(«\nMассив возьмем из предыдущей задачи (№ 43), преобразовав double в int32.\n»);
+
+Int[,] arrayWhole = new int[m, n];
+arrayWhole = TransformationArrayWhole(array);
+
+WriteArrayInt(arrayWhole);
+
+Console.Write($»\nCреднее арифметическое:\n»);
+For (int i = 0; i < n; i++)
+{
+  Double arithmeticMean = 0;
+  For (int j = 0; j < m; j++)
+  {
+    arithmeticMean += arrayWhole[j, i];
+  }
+  arithmeticMean = Math.Round(arithmeticMean / m, 1);
+  Console.WriteLine($»столбца № {i+1} {arithmeticMean}»);
+}
+
+Int[,] TransformationArrayWhole (double[,] array)
+{
+  Int[,] arrayWhole = new int[array.GetLength(0), array.GetLength(1)];
+  For (int i = 0; i < array.GetLength(0); i++)
+  {
+    For (int j = 0; j < array.GetLength(1); j++)
+    {
+      arrayWhole[i, j] = Convert.ToInt32(array[i, j]);
+    }
+  }
+  Return arrayWhole;
+}
+
+Void WriteArrayInt (int[,] arrayWhole){
+For (int i = 0; i < m; i++)
+  {
+      For (int j = 0; j < n; j++)
+      {
+        Console.Write(arrayWhole[i, j] + « «);
+      }
+
+Задача 50: Напишите программу, которая на вход принимает позиции элемента в двумерном массиве, и возвращает значение этого элемента или же указание, что такого элемента нет 
+
+Console.Write(«\nMассив возьмем из предыдущей задачи (№ 43).\n»);
+Console.Write(«Введите координаты позиции элемента, разделенных запятой: «);
+
+String? positionElement = Console.ReadLine();
+positionElement = RemovingSpaces(positionElement);
+int[] position = ParserString(positionElement);
+
+if(position[0] <= m 
+&& position[1] <= n 
+&& position[0] >= 0 
+&& position[1] >= 0) 
+{
+  Double result = array[position[0]-1, position[1]-1];
+  Console.Write($»Значение элемента: {result}»);
+}
+Else Console.Write($»такого элемента в массиве нет.»);
+
+Int[] ParserString(string input)
+{
+  Int countNumbers = 1;
+  For (int i = 0; i < input.Length; i++)
+  {
+      If (input[i] == ',')
+          countNumbers++;
+  }
+
+  Int[] numbers = new int[countNumbers];
+
+  Int numberIndex = 0;
+  For(int i = 0; i < input.Length; i++)
+  {
+    String subString = String.Empty;
+
+    While (input[i] != ',')
+    {
+      subString += input[i].ToString();
+      if (i >= input.Length – 1)
+        break;
+      i++;
+    }
+    Numbers[numberIndex] = Convert.ToInt32(subString);
+    numberIndex++;
+  }
+
+  Return numbers;
+}
+
+String RemovingSpaces (string input)
+{
+  String output = String.Empty;
+  For (int i = 0; i < input.Length; i++)
+  {
+    If (input[i] != ' ') 
+    {
+      Output += input[i];
+    }
+  }
+  Return output;
+}
+
+
+
+Задача 52 
+
+Console.Write(«\nMассив возьмем из предыдущей задачи (№ 43), преобразовав double в int32.\n»);
+
+
+Int[,] arrayWhole = new int[m, n];
+arrayWhole = TransformationArrayWhole(array);
+
+WriteArrayInt(arrayWhole);
+
+Console.Write($»\nCреднее арифметическое:\n»);
+For (int i = 0; i < n; i++)
+{
+  Double arithmeticMean = 0;
+  For (int j = 0; j < m; j++)
+  {
+    arithmeticMean += arrayWhole[j, i];
+  }
+  arithmeticMean = Math.Round(arithmeticMean / m, 1);
+  Console.WriteLine($»столбца № {i+1} {arithmeticMean}»);
+}
+
+Int[,] TransformationArrayWhole (double[,] array)
+{
+  Int[,] arrayWhole = new int[array.GetLength(0), array.GetLength(1)];
+  For (int i = 0; i < array.GetLength(0); i++)
+  {
+    For (int j = 0; j < array.GetLength(1); j++)
+    {
+      arrayWhole[i, j] = Convert.ToInt32(array[i, j]);
+    }
+  }
+  Return arrayWhole;
+}
+
+Void WriteArrayInt (int[,] arrayWhole){
+For (int i = 0; i < m; i++)
+  {
+      For (int j = 0; j < n; j++)
+      {
+        Console.Write(arrayWhole[i, j] + « 
