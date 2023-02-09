@@ -1,0 +1,65 @@
+Знакомство с языками программирования
+
+// Показать натуральные числа от N до 1, N задано
+
+String NumbersRec(int n)
+{
+    If(n <= 9) return NumbersRec(n + 1) + $»{n}»;
+    Else return String.Empty;
+}
+Console.WriteLine(NumbersRec(1)); 
+___________________________________
+2 // Показать натуральные числа от M до N, N и M заданы
+
+String NumbersRec(int n,int  m)
+{
+    If(n <= m) return NumbersRec(n + 1, m) + $»{n}»;
+    Else return String.Empty;
+}
+Console.WriteLine(NumbersRec(1,9)); 
+
+3 // Найти сумму элементов от M до N, N и M заданы
+
+Int SumRec(int n,int m)
+{ 
+    If(n == 0) return 0;
+    Else return SumRec(n – 1, m) + n;
+}
+Console.WriteLine(SumRec(9,1));
+
+4 // Написать программу вычисления функции Аккермана
+
+Int Akk(int n,int m)
+{ 
+    If (n == 0) return m + 1;
+    If (n != 0 && m == 0) return Akk(n – 1, 1);
+    If (n > 0 && m > 0) return Akk(n – 1, Akk(n, m – 1));
+    Return Akk(n,m);
+}
+Console.WriteLine(Akk(2,1));
+
+5 // Написать программу показывающие первые N чисел, для которых каждое следующее равно
+//  сумме двух предыдущих. Первые два элемента последовательности задаются пользователем
+
+Int GetNumber(string message)
+{
+    Console.Write(message);
+    Return Convert.ToInt32(Console.ReadLine());
+}
+Void PrintNumber(int numberFirst, int numberSecond, int score)
+{
+    Int temporary = 0;
+    If (score > 0)
+    {
+        Console.Write(numberFirst + numberSecond + « «);
+        Temporary = numberFirst;
+        numberFirst =numberSecond;
+        numberSecond += temporary;
+        PrintNumber(numberFirst, numberSecond, score -= 1);
+    }
+}
+Int numberFirst = GetNumber(«Введите число M: «);
+Int numberSecond = GetNumber(«Введите число N: «);
+Int score = GetNumber(«Введите количество раз, сколько раз мы выведем число: «);
+PrintNumber(numberFirst, numberSecond, score);
+
