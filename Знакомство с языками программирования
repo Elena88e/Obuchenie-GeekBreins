@@ -1,0 +1,112 @@
+Итоговое задание 
+
+// Показать натуральные числа от N до 1, N задано
+
+
+static void Main(string[] args)
+        {
+            NumbersRec(5);
+        }
+        static void NumbersRec(int n)
+        {
+            if (n >= 1)
+            {
+                Console.WriteLine(n);
+                NumbersRec(n - 1);
+            }
+        }
+        
+        
+      // Показать натуральные числа от M до N, N
+      
+      
+static void Main(string[] args)
+        {
+            NumbersRec(1, 5);  
+        }
+        static void NumbersRec(int n, int m)
+        {
+            if (n <= m)
+            {
+                Console.WriteLine(n);
+                NumbersRec(n + 1, m);
+            }
+        }
+        
+        
+        
+        / Найти сумму элементов от M до N, N и M заданы
+        
+static void Main(string[] args)
+        {
+            Console.WriteLine(SumRec(-2,4));
+        }
+        static int SumRec(int n, int m)
+        {
+            int sum = 0;
+            if (n <= m)
+            {
+                sum = SumItem(n, m);
+            }
+            else sum = SumItem(m, n);
+            return sum;
+        }
+        static int SumItem(int firstEL,int secondEL)
+        {
+            int sum = 0;
+            for (int i = firstEL; i <= secondEL; i++)
+            {
+                sum += i;
+            }
+            return sum;
+        }
+        
+        
+        
+        // Написать программу вычисления функции Аккермана
+        
+        
+static void Main(string[] args)
+        {
+            Console.WriteLine(Akk(2, 1));
+        }
+        static int Akk(int n, int m)
+        {
+            if(n == 0) return m + 1;
+            if(n != 0 && m == 0) return Akk(n - 1, 1);
+            if(n > 0 && m > 0) return Akk(n -1, Akk(n, m - 1));
+            return Akk(n, m);
+        }
+        
+        
+      
+      Написать программу показывающие первые N чисел,
+      для которых каждое следующее равно сумме двух предыдущих.
+      Первые два элемента последовательности задаются пользователем
+      
+      static void Main(string[] args)
+        {
+            int numberFirst = GetNumber("Введите число M: ");
+            int numberSecond = GetNumber("Введите число N: ");
+            int score = GetNumber("Введите количество раз, сколько раз мы выведем число: ");
+            PrintNumber(numberFirst, numberSecond, score);
+        }
+        static int GetNumber(string message)
+        {
+            Console.Write(message);
+            return Convert.ToInt32(Console.ReadLine());
+        }
+
+        static void PrintNumber(int numberFirst, int numberSecond, int score)
+        {
+            int temporary = 0;
+            if(score > 0)
+            {
+                Console.Write(numberFirst + numberSecond);
+                temporary = numberFirst;
+                numberFirst = numberSecond;
+                numberSecond += temporary;
+                PrintNumber(numberFirst, numberSecond, score -= 1);
+            }
+        }
+        
